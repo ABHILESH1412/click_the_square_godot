@@ -25,7 +25,24 @@ offset_left = 2.0
 offset_top = 2.0
 offset_right = 164.0
 offset_bottom = 61.0
-theme_override_font_sizes/font_size = 43
+theme_override_font_sizes/font_size = 32
 text = "Score: 0"
 
+[node name="Timer" type="Timer" parent="." unique_id=694826784]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="timer_label" type="Label" parent="." unique_id=723670289]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_bottom = 45.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 32
+text = "0s remaining"
+
 [connection signal="pressed" from="square" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

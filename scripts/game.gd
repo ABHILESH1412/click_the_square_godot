@@ -1,6 +1,8 @@
 extends Control
 @onready var square: Button = $square
 @onready var score_label: Label = $score_label
+@onready var timer_label: Label = $timer_label
+@onready var timer: Timer = $Timer
 
 var score = 0
 
@@ -12,8 +14,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
+	$timer_label.text = str(ceil($Timer.time_left)) + "s remaining"
 
 func _on_button_pressed() -> void:
 	# 1. Increase the score by 1
@@ -29,3 +30,11 @@ func _on_button_pressed() -> void:
 	
 	# 4. Move the square to that new position
 	$square.global_position = Vector2(random_x, random_y)
+
+
+func _on_timer_timeout() -> void:
+	# Hide the square so the player can't click it anymore
+	$square.hide()
+	# Change the time text to show the game is finished
+	$timer_label.text = "Game Over!"
+	pass # Replace with function body.
