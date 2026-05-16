@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="click the square"
+run/main_scene="uid://bkcyw0u77kx8f"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

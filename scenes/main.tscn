@@ -1,3 +1,22 @@
 [gd_scene format=3 uid="uid://bkcyw0u77kx8f"]
 
+[ext_resource type="Script" uid="uid://1xkff4s71ry4" path="res://scripts/square.gd" id="1_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://d1lnxo6lrnc67" path="res://icon.svg" id="2_sugp2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyhfs"]
+size = Vector2(128, 129)
+
 [node name="main" type="Node2D" unique_id=1747537701]
+
+[node name="square" type="Area2D" parent="." unique_id=990366093]
+position = Vector2(321, 252)
+script = ExtResource("1_0wfyh")
+
+[node name="Sprite2D" type="Sprite2D" parent="square" unique_id=340675064]
+texture = ExtResource("2_sugp2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="square" unique_id=160529498]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_jyhfs")
+
+[connection signal="input_event" from="square" to="square" method="_on_input_event"]
