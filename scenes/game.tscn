@@ -19,4 +19,13 @@ offset_top = 128.0
 offset_right = 333.0
 offset_bottom = 256.0
 
+[node name="score_label" type="Label" parent="." unique_id=1357560889]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 164.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 43
+text = "Score: 0"
+
 [connection signal="pressed" from="square" to="." method="_on_button_pressed"]
