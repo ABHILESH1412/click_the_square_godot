@@ -1,7 +1,12 @@
 extends Area2D
 var score: int = 0
 @onready var score_label: Label = $"../score_label"
+@onready var timer: Timer = $"../Timer"
+@onready var timer_label: Label = $"../timer_label"
 
+func _process(delta):
+	# Update the time label with the remaining time, rounded to a nice whole number
+	timer_label.text = str(ceil(timer.time_left)) + "s remaining"
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	# Check if the event is a mouse button press and if it's the LEFT click
@@ -21,3 +26,9 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		# 3. Move the Area2D square to the new position
 		position = Vector2(random_x, random_y)
 		#$square.position = Vector2(random_x, random_y)
+
+
+func _on_timer_timeout() -> void:
+	print("Game End")
+	hide()
+	pass # Replace with function body.
